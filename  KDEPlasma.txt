@@ -1,0 +1,3 @@
+ pacman -S  plasma kde-applications 
+ // plasma-wayland-session not nedd if ur an  wayland then install 
+pacman -S  plasma-wayland-session

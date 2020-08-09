@@ -1,0 +1,9 @@
+sudo rfkill list
+sudo rfkill unblock bluetooth
+sudo systemctl status bluetooth
+sudo systemctl start bluetooth
+sudo systemctl status bluetooth
+sudo pacman -Sy
+sudo pacman -S blueman
+
+reff:https://linuxhint.com/bluetooth_arch_linux/

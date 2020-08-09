@@ -1,0 +1,11 @@
+sudo pacman -Syu
+sudo pacman -S mtpfs
+cd ~/Downloads
+git clone https://aur.archlinux.org/jmtpfs.git
+cd jmtpfs/
+makepkg -s
+sudo pacman -U jmtpfs-0.5-2-x86_64.pkg.tar.zst//depens on version
+sudo pacman -Sy gvfs-mtp
+sudo pacman -Sy gvfs-gphoto2
+sudo reboot
+
