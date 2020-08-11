@@ -39,8 +39,8 @@ dd if=/dev/zero of=/swapfile bs=1M count=4048 status=progress
 23.pacman -S sudo
  EDITOR=nano visudo
 [Uncomment:  %wheel ALL=(ALL) ALL]
-24. pacman -S grub os-prober  dosfstools  efibootmgr mtools networkmanager network-manager-applet wpa_supplicant wireless_tools netctl dialog 
-25. systemctl enable NetworkManager ntfs-3g xf86-video-amdgpu nvidia nvidia-utils xorg pulseaudio pulseaudio-alsa xorg xorg-xinit xorg-server 
+24. pacman -S grub os-prober  dosfstools  efibootmgr mtools networkmanager network-manager-applet wpa_supplicant wireless_tools netctl dialog ntfs-3g xf86-video-amdgpu nvidia nvidia-utils  pulseaudio pulseaudio-alsa xorg xorg-xinit xorg-server git bluez bluez-utils pulseaudio-bluetooth cups
+25. systemctl enable NetworkManager 
  26.mkinitcpio -p linux linux-lts
 27.grub-install --target=i386-pc /dev/sdX
 28.grub-mkconfig -o /boot/grub/grub.cfg
