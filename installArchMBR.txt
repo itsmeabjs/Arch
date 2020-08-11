@@ -46,3 +46,4 @@ dd if=/dev/zero of=/swapfile bs=1M count=4048 status=progress
 28.grub-mkconfig -o /boot/grub/grub.cfg
 29.nmtui for wifi
 
+https://averagelinuxuser.com/a-step-by-step-arch-linux-installation-guide/
