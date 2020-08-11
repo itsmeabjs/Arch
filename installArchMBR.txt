@@ -1,0 +1,48 @@
+1. set internet
+2. Using cfdisk make 3 partition or 4 if home need to ne seprete then 
+   Boot [it must be bootable] 512M
+   swap [if ram is low dubale if not same as ram] 4G if 2G ram
+   / 75G
+   
+   
+   
+3.famant all exept swap in ext4[u can use mkfs]
+4.mkswap /dev/sdb2
+5.swapon /dev/sdb2
+6.mount /dev/sdb3 /mnt
+7.pacstrap /mnt base base-devel linux linux-firmware linux-headers  linux-lts linux-lts-headers intel-ucode nano 
+8.genfstab -U /mnt >> /mnt/etc/fstab
+9.arch-chroot /mnt
+if swap file
+truncate -s 0 /swapfile
+dd if=/dev/zero of=/swapfile bs=1M count=4048 status=progress
+ echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
+  chmod 600 /swapfile
+   mkswap /swapfile
+  swapon /swapfile
+10.ln -sf /usr/share/zoninfo/India/xx /etc/localtime
+11.hwclock --systohc
+12.nano /etc/locale.gen 
+13.locale-gen
+14.nano /etc/locale.conf
+15.[type] LANG=en_US.UTF-8
+16.nano /etc/hostname
+17.Arch
+18.nano /etc/hosts
+19.type
+127.0.0.1         localhost
+::1               localhost
+127.0.1.1         Arch.localdomain      Arch
+20.passwd
+21. useradd -m -g users -G wheel <username>
+22. passwd <username>
+23.pacman -S sudo
+ EDITOR=nano visudo
+[Uncomment:  %wheel ALL=(ALL) ALL]
+24. pacman -S grub os-prober  dosfstools  efibootmgr mtools networkmanager network-manager-applet wpa_supplicant wireless_tools netctl dialog 
+25. systemctl enable NetworkManager ntfs-3g xf86-video-amdgpu nvidia nvidia-utils xorg
+ 26.mkinitcpio -p linux linux-lts
+27.grub-install --target=i386-pc /dev/sdX
+28.grub-mkconfig -o /boot/grub/grub.cfg
+29.nmtui for wifi
+
