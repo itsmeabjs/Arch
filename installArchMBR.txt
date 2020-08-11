@@ -40,7 +40,7 @@ dd if=/dev/zero of=/swapfile bs=1M count=4048 status=progress
  EDITOR=nano visudo
 [Uncomment:  %wheel ALL=(ALL) ALL]
 24. pacman -S grub os-prober  dosfstools  efibootmgr mtools networkmanager network-manager-applet wpa_supplicant wireless_tools netctl dialog 
-25. systemctl enable NetworkManager ntfs-3g xf86-video-amdgpu nvidia nvidia-utils xorg
+25. systemctl enable NetworkManager ntfs-3g xf86-video-amdgpu nvidia nvidia-utils xorg pulseaudio pulseaudio-alsa xorg xorg-xinit xorg-server 
  26.mkinitcpio -p linux linux-lts
 27.grub-install --target=i386-pc /dev/sdX
 28.grub-mkconfig -o /boot/grub/grub.cfg
