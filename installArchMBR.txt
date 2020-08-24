@@ -3,9 +3,6 @@
    Boot [it must be bootable] 512M
    swap [if ram is low dubale if not same as ram] 4G if 2G ram
    / 75G
-   
-   
-   
 3.famant all exept swap in ext4[u can use mkfs]
 4.mkswap /dev/sdb2
 5.swapon /dev/sdb2
@@ -39,9 +36,16 @@ dd if=/dev/zero of=/swapfile bs=1M count=4048 status=progress
 23.pacman -S sudo
  EDITOR=nano visudo
 [Uncomment:  %wheel ALL=(ALL) ALL]
-24. pacman -S grub os-prober  dosfstools  efibootmgr mtools networkmanager network-manager-applet wpa_supplicant wireless_tools netctl dialog ntfs-3g xf86-video-amdgpu nvidia nvidia-utils  pulseaudio pulseaudio-alsa xorg xorg-xinit xorg-server git bluez bluez-utils pulseaudio-bluetooth cups
+24. pacman -S    
+pulseaudio pulseaudio-alsa pavucontrol
+networkmanager network-manager-applet wpa_supplicant wireless_tools netctl dialog bluez bluez-utils pulseaudio-bluetooth blueman
+grub os-prober  dosfstools  efibootmgr mtools ntfs-3g git
+xf86-video-amdgpu nvidia nvidia-lts nvidia-utils 
+firefox  vlc libreoffice audacity gimp inkscape
+xorg xorg-xinit xorg-server lightdm lightdm-gtk-greeter 
+
 25. systemctl enable NetworkManager 
- 26.mkinitcpio -p linux linux-lts
+26.mkinitcpio -p linux linux-lts
 27.grub-install --target=i386-pc /dev/sdX
 28.grub-mkconfig -o /boot/grub/grub.cfg
 29.nmtui for wifi

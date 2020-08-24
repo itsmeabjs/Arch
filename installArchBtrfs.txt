@@ -1,0 +1,67 @@
+
+set internet
+
+reflector
+reflector -c India --sort rate --save /etc/pacman.d/mirrorlist
+pacamn -Syyy
+
+timedatectl set-ntp true
+fdisk/[disk name]
+formant all drive mkfs.btrfs
+mount all drives
+
+pacstrap /mnt base linux linux-lts linux-firmware linux-lts-firmware nano 
+
+genfstab -U /mnt >> /mnt/etc/fstab
+
+arch-chroot /mnt
+
+swap file
+	truncate -s 0 /swapfile
+	dd if=/dev/zero of=/swapfile bs=1M count=8129 status=progress
+ 	echo '/swapfile none swap sw 0 0' | tee -a /etc/fstab
+  	chmod 600 /swapfile
+   	mkswap /swapfile
+  	swapon /swapfile
+nano /etc/locale.gen 
+locale-gen
+nano /etc/locale.conf
+LANG=en_US.UTF-8
+/etc/hostname
+	Arch
+nano /etc/hosts
+type
+	127.0.0.1         localhost
+	::1               localhost
+	127.0.1.1         Arch.localdomain      Arch
+passwd
+useradd -m -g users -G wheel <username>
+passwd <username>
+pacman -S sudo
+ EDITOR=nano visudo
+[Uncomment:  %wheel ALL=(ALL) ALL]
+pacman -S   
+linux-headers  base-devel linux-lts-headers  intel-ucode 
+pulseaudio pulseaudio-alsa pavucontrol
+networkmanager network-manager-applet wpa_supplicant wireless_tools netctl dialog bluez bluez-utils pulseaudio-bluetooth blueman
+grub os-prober  dosfstools  efibootmgr mtools ntfs-3g 
+git reflector cron
+xf86-video-amdgpu nvidia nvidia-lts nvidia-utils 
+firefox  vlc libreoffice audacity gimp inkscape
+xorg xorg-xinit xorg-server lightdm lightdm-gtk-greeter 
+
+grub-install --target=x86_64-efi --efi-directory=/boot/EFI --bootloader-id=Arch
+grub-install --target=i386-pc /dev/sdX
+mkinitcpio -p linux linux-lts
+grub-mkconfig -o /boot/grub/grub.cfg
+
+systemctl enable NetworkManager 
+
+
+nmtui for wifi
+KDE 
+	plasma kde-application xdg-user-dirs packagekit-qt5
+time shift
+
+
+https://averagelinuxuser.com/a-step-by-step-arch-linux-installation-guide/
