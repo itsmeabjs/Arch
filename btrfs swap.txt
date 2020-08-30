@@ -1,1 +1,9 @@
-chattr +C /swapfile && btrfs property set /swapfile compression none
+#!/bin/bash
+truncate -s 0 /swapfile
+chattr +C /swapfile
+btrfs property set /swapfile compression none
+fallocate -l 512M /swapfile
+chmod 600 /swapfile
+mkswap /swapfile
+lsattr /swapfile
+swapon /swapfile
